@@ -1,0 +1,24 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "video link",
+  "main": "index.js",
+  "scripts": {
+    "buld": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melnichukbohdan/webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melnichukbohdan/webpack/issues"
+  },
+  "homepage": "https://github.com/melnichukbohdan/webpack#readme",
+  "dependencies": {
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
