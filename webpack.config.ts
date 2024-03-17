@@ -1,9 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
-module.exports = (env) => {
-    return {
+type Mode = 'development' | 'production';
+
+interface EnvVariables {
+    mode: Mode
+}
+
+export default (env: any) => {
+    const config: webpack.Configuration = {
         mode: env.mode ?? 'development', // mode of build development(don't not optimized)/production (optimized)
         entry: path.resolve(__dirname, 'src', 'index.ts'),
         output: {
@@ -13,7 +19,6 @@ module.exports = (env) => {
         },
         plugins: [
             new HtmlWebpackPlugin({template: path.resolve(__dirname, 'public', 'index.html')}),
-            new webpack.ProgressPlugin(),
         ],
         module: {
             rules: [
@@ -28,4 +33,6 @@ module.exports = (env) => {
             extensions: ['.tsx', '.ts', '.js'], //extension of source code files for loader processing.
         },
     }
+
+    return config
 }
