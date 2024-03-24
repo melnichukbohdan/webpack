@@ -15,7 +15,7 @@ export default (env: EnvVariables) => {
 
     const config: webpack.Configuration = {
         mode: env.mode ?? 'development', // mode of build development(don't not optimized)/production (optimized)
-        entry: path.resolve(__dirname, 'src', 'index.ts'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: {
             path: path.resolve(__dirname, 'build'), // folder to saving compiled file.
             filename: '[name].[contenthash].js', // the compiled file mame.
@@ -23,7 +23,7 @@ export default (env: EnvVariables) => {
         },
         plugins: [
             new HtmlWebpackPlugin({template: path.resolve(__dirname, 'public', 'index.html')}),
-        ],
+        ].filter(Boolean),
         module: {
             rules: [
                 {
