@@ -1,5 +1,5 @@
 import {createRoot} from "react-dom/client";
-import {App} from "./components/App";
+import {App} from "./components/App/App";
 import {createBrowserRouter, createHashRouter, RouterProvider} from "react-router-dom";
 import {AboutLazy} from "./pages/About/About.lazy";
 import {Shop} from "./pages/Shop";
