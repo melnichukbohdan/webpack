@@ -53,7 +53,7 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
         exclude: /node_modules/,
     }
 
-    let tsLoader: {} = {};
+    let tsLoader: object = {};
 
     if (isDev) {
           // TS loader with disabled types checker.
@@ -80,10 +80,19 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
         }
     }
 
+    const babelLoader = {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader"
+        }
+    }
+
     return [
         assetLoader,
         svgLoader,
         scssLoader,
-        tsLoader
+        babelLoader,
+        // tsLoader
     ]
 }
