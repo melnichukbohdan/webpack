@@ -29,7 +29,7 @@ export const App = () => {
   //   // developmentTools();
   // }
     return (
-      <div>
+      <div data-testid={'App.DataTestId'}>
         test
         <Link to={'/about'}>About</Link>
         <br/>
