@@ -10,6 +10,18 @@ export const App = () => {
 
     const [count, setCount] = useState(0)
     const increment = () => setCount(prev => prev + 1)
+
+  if (__PLATFORM__ === 'desktop') {
+    return <div>IS DESKTOP</div>
+  }
+
+  if (__PLATFORM__ === 'mobile') {
+    return <div>IS MOBILE</div>
+  }
+
+  if (__ENV__ === 'development') {
+    // developmentTools();
+  }
     return (
       <div>
         <Link to={'/about'}>About</Link>

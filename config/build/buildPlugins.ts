@@ -13,6 +13,10 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
         new HtmlWebpackPlugin({
             template: options.paths.html
         }),
+        new webpack.DefinePlugin({
+          __PLATFORM__: JSON.stringify(options.platform),
+          __ENV__: JSON.stringify(options.mode),
+        })
     ]
 
     if (isDev) {
