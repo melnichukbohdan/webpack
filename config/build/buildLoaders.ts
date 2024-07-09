@@ -52,11 +52,29 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
         exclude: /node_modules/,
     }
 
-    const tsLoader = {
+    let tsLoader: {} = {};
+
+    if (isDev) {
+          // TS loader with disabled types checker.
+          tsLoader = {
+              test: /\.tsx?$/,
+              use: [
+                  {
+                      loader: 'ts-loader',
+                      options: {
+                          transpileOnly: true
+                      }
+                  }
+              ]
+            }
+        } else {
+        // TS loader default.
+        tsLoader = {
             test: /\.tsx?$/, // regular expression.
             use: 'ts-loader', // the loader.
             exclude: /node_modules/, // won't be processed.
         }
+    }
 
     return [
         assetLoader,
