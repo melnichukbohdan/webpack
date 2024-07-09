@@ -30,6 +30,7 @@ export const App = () => {
   // }
     return (
       <div>
+        test
         <Link to={'/about'}>About</Link>
         <br/>
         <Link to={'/shop'}>Shop</Link>
